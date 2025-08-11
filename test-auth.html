@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auth Test</title>
+    <style>
+        body { font-family: monospace; padding: 20px; }
+        pre { background: #f0f0f0; padding: 10px; }
+        button { margin: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>인증 테스트</h1>
+    
+    <div>
+        <button onclick="testLogin()">관리자 로그인 테스트</button>
+        <button onclick="checkStorage()">LocalStorage 확인</button>
+        <button onclick="clearStorage()">LocalStorage 초기화</button>
+    </div>
+    
+    <h2>결과:</h2>
+    <pre id="result"></pre>
+    
+    <script>
+        async function testLogin() {
+            const result = document.getElementById('result');
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'admin@test.com',
+                        password: 'admin123'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                // localStorage에 저장
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                }
+                
+                result.textContent = JSON.stringify(data, null, 2);
+                console.log('Login response:', data);
+                
+                // 사용자 role과 level 확인
+                if (data.user) {
+                    console.log('User role:', data.user.role);
+                    console.log('User level:', data.user.level);
+                    console.log('Is admin?', data.user.role === 'admin' || data.user.level === 1);
+                }
+                
+            } catch (error) {
+                result.textContent = 'Error: ' + error.message;
+            }
+        }
+        
+        function checkStorage() {
+            const result = document.getElementById('result');
+            const user = localStorage.getItem('user');
+            const token = localStorage.getItem('token');
+            
+            let output = 'LocalStorage 내용:\n\n';
+            
+            if (user) {
+                output += 'User:\n' + JSON.stringify(JSON.parse(user), null, 2) + '\n\n';
+            } else {
+                output += 'User: 없음\n\n';
+            }
+            
+            if (token) {
+                output += 'Token: ' + token.substring(0, 50) + '...';
+            } else {
+                output += 'Token: 없음';
+            }
+            
+            result.textContent = output;
+        }
+        
+        function clearStorage() {
+            localStorage.clear();
+            document.getElementById('result').textContent = 'LocalStorage가 초기화되었습니다.';
+        }
+    </script>
+</body>
+</html>
