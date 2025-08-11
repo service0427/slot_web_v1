@@ -216,5 +216,8 @@ src/
 - **Backend**: Supabase
 - **State Management**: React Hooks
 
+## 배포 상태
+- 프로덕션 환경 준비 완료
+
 ## 라이선스
 이 프로젝트는 비공개 프로젝트입니다.
