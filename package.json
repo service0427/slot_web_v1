@@ -14,9 +14,7 @@
     "seed:users": "node server/scripts/seed-users.js",
     "seed:slots": "node server/scripts/seed-slots.js",
     "seed:all": "npm run seed:users && npm run seed:slots",
-    "deploy": "npm run build && wrangler deploy --env production",
-    "deploy:test": "npm run build && wrangler deploy --env test",
-    "deploy:develop": "npm run build && wrangler deploy --env develop"
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.14",

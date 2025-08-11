@@ -1,32 +1,11 @@
 {
   "account_id": "d487a4f4ab6dd57899955ec5775f10ce",
-  "name": "slot-system-develop",
-  "main": "api-worker.js",
+  "name": "slot-system-01",
   "compatibility_date": "2025-05-06",
   "assets": {
     "directory": "./dist"
   },
-  "dev": {
-    "port": 8787
-  },
-  "env": {
-    "production": {
-      "name": "slot-system-01",
-      "vars": {
-        "ENVIRONMENT": "production"
-      }
-    },
-    "develop": {
-      "name": "slot-system-develop",
-      "vars": {
-        "ENVIRONMENT": "develop"
-      }
-    },
-    "test": {
-      "name": "slot-system-test",
-      "vars": {
-        "ENVIRONMENT": "test"
-      }
-    }
+  "vars": {
+    "ENVIRONMENT": "production"
   }
 }
