@@ -1,8 +1,0 @@
-name = "slot-system-01"
-compatibility_date = "2025-01-15"
-
-# Pages 설정
-pages_build_output_dir = "dist"
-
-[vars]
-ENVIRONMENT = "production"
