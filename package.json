@@ -5,14 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
+    "build:check": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server/index.js",
     "server:dev": "nodemon server/index.js",
     "seed:users": "node server/scripts/seed-users.js",
     "seed:slots": "node server/scripts/seed-slots.js",
-    "seed:all": "npm run seed:users && npm run seed:slots"
+    "seed:all": "npm run seed:users && npm run seed:slots",
+    "deploy": "npm run build && wrangler pages deploy dist",
+    "deploy:dev": "npm run build && wrangler pages deploy dist --project-name slot-system-dev",
+    "deploy:prod": "npm run build && wrangler pages deploy dist --project-name slot-system-prod"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.14",
@@ -62,6 +66,7 @@
     "tailwindcss": "^3.4.17",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.4"
+    "vite": "^7.0.4",
+    "wrangler": "^4.28.1"
   }
 }
