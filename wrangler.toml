@@ -1,12 +1,6 @@
 name = "slot-system-01"
 compatibility_date = "2025-01-15"
-
-[build]
-command = "npm run build"
-publish = "dist"
+pages_build_output_dir = "dist"
 
 [vars]
 ENVIRONMENT = "production"
-
-[dev]
-port = 8788
