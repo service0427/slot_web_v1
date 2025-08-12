@@ -43,5 +43,5 @@ jobs:
           projectName: slot-system-01
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref == 'refs/heads/main' && 'main' || github.head_ref }}
+          branch: ${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
           wranglerVersion: '3'
