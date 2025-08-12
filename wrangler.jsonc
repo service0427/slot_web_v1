@@ -3,9 +3,6 @@
   "name": "slot-system-01",
   "main": "workers-site/index.js",
   "compatibility_date": "2025-05-06",
-  "assets": {
-    "directory": "./dist"
-  },
   "site": {
     "bucket": "./dist"
   },
