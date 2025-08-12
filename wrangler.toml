@@ -1,0 +1,22 @@
+name = "slot-system-01"
+main = "worker.js"
+compatibility_date = "2025-01-15"
+account_id = "d487a4f4ab6dd57899955ec5775f10ce"
+
+[build]
+command = "npm run build"
+
+[build.upload]
+format = "modules"
+
+[[assets]]
+bucket = "./dist"
+include = ["**/*"]
+
+[vars]
+ENVIRONMENT = "production"
+API_URL = "https://api.slot-system.com"
+PROJECT_NAME = "Rainbow Pink"
+
+[dev]
+port = 8788
