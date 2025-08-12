@@ -9,9 +9,6 @@
   "site": {
     "bucket": "./dist"
   },
-  "build": {
-    "command": "npm run build"
-  },
   "env": {
     "production": {
       "name": "slot-system-01",
