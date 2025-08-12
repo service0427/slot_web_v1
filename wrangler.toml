@@ -6,12 +6,8 @@ account_id = "d487a4f4ab6dd57899955ec5775f10ce"
 [build]
 command = "npm run build"
 
-[build.upload]
-format = "modules"
-
-[[assets]]
+[site]
 bucket = "./dist"
-include = ["**/*"]
 
 [vars]
 ENVIRONMENT = "production"
