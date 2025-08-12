@@ -1,8 +1,35 @@
 {
+  "account_id": "d487a4f4ab6dd57899955ec5775f10ce",
   "name": "slot-system-01",
-  "compatibility_date": "2025-01-15",
-  "pages_build_output_dir": "dist",
-  "vars": {
-    "ENVIRONMENT": "production"
+  "main": "workers-site/index.js",
+  "compatibility_date": "2025-05-06",
+  "assets": {
+    "directory": "./dist"
+  },
+  "site": {
+    "bucket": "./dist"
+  },
+  "build": {
+    "command": "npm run build"
+  },
+  "env": {
+    "production": {
+      "name": "slot-system-01",
+      "vars": {
+        "ENVIRONMENT": "production"
+      }
+    },
+    "develop": {
+      "name": "slot-system-01-dev",
+      "vars": {
+        "ENVIRONMENT": "develop"
+      }
+    },
+    "test": {
+      "name": "slot-system-01-test",
+      "vars": {
+        "ENVIRONMENT": "test"
+      }
+    }
   }
 }
