@@ -73,7 +73,7 @@ export const LoginPage: React.FC = () => {
               <Sparkles className="w-10 h-10 text-white" />
             </motion.div>
             <h1 className="text-3xl font-bold text-white mb-2">슬롯 매니저</h1>
-            <p className="text-white/70">프리미엄 슬롯 관리 시스템</p>
+            <p className="text-white/70">Rainbow Pink</p>
           </div>
 
           {/* 로그인 폼 */}
