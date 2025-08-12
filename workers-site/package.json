@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "CloudFlare Worker for slot-system-01",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.3.0"
+  }
+}
