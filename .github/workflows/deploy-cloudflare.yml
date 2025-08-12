@@ -1,0 +1,47 @@
+name: Deploy to CloudFlare Workers
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to CloudFlare Workers
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build project
+        run: npm run build
+        env:
+          CI: true
+      
+      - name: Install Workers Site dependencies
+        run: |
+          cd workers-site
+          npm install
+          cd ..
+      
+      - name: Deploy to CloudFlare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}
+        env:
+          CLOUDFLARE_ACCOUNT_ID: d487a4f4ab6dd57899955ec5775f10ce
